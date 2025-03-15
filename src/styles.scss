@@ -1,0 +1,311 @@
+$cream: #f4f1de; // Кремовый
+$warm-red: #e07a5f; // Теплый красный
+$deep-blue: #3d405b; // Глубокий синий
+$teal-green: #81b29a; // Зеленовато-бирюзовый
+$golden-sand: #f2cc8f; // Песочно-золотистый
+$muted-green: #7c998c; // Приглушенный зеленый
+$peach: #e09c89; // Персиковый
+$burnt-orange: #d14c28; // Жженый оранжевый
+$off-white: #fbfaf3; // Молочно-белый
+
+// Брейкпоинты для адаптивности
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-desktop: 1440px;
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background-color: $cream;
+	font-family: sans-serif;
+}
+
+header {
+	background-color: $warm-red;
+	color: $off-white;
+	padding: 10px 15px;
+	border-bottom: 5px solid $burnt-orange;
+
+	h1 {
+		margin: 0;
+		font-size: 1.8rem;
+
+		@media (min-width: $tablet) {
+			font-size: 2.2rem;
+		}
+
+		@media (min-width: $desktop) {
+			font-size: 2.5rem;
+		}
+	}
+
+	@media (min-width: $tablet) {
+		padding: 15px 20px;
+	}
+
+	@media (min-width: $desktop) {
+		padding: 20px 30px;
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 10px;
+
+	@media (min-width: $tablet) {
+		padding: 0 20px;
+	}
+}
+
+.search {
+	width: 100%;
+	margin: 15px 0;
+	padding: 10px;
+	color: $off-white;
+	background-color: $peach;
+	border: 5px solid $warm-red;
+	border-radius: 5px;
+	box-sizing: border-box;
+
+	@media (min-width: $tablet) {
+		width: 90%;
+		margin: 20px 0;
+		padding: 15px;
+	}
+
+	@media (min-width: $desktop) {
+		width: 80%;
+		max-width: 1200px;
+	}
+
+	button {
+		padding: 10px;
+		margin-top: 10px;
+		width: 100%;
+		font-size: 1rem;
+		color: $off-white;
+		border: 2px solid $muted-green;
+		background-color: $teal-green;
+		border-radius: 3px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $muted-green;
+		}
+
+		@media (min-width: $tablet) {
+			width: 25%;
+			margin-left: 10px;
+			margin-top: 0;
+		}
+
+		@media (min-width: $desktop) {
+			width: 15%;
+			padding: 12px 20px;
+		}
+	}
+
+	input[type='text'] {
+		width: 100%;
+		box-sizing: border-box;
+		border: 2px solid $warm-red;
+		font-size: 1rem;
+		background-color: $off-white;
+		background-position: 10px 10px;
+		background-repeat: no-repeat;
+		padding: 12px 20px;
+		transition: width 0.4s ease-in-out;
+		border-radius: 3px;
+
+		@media (min-width: $tablet) {
+			width: 70%;
+		}
+
+		@media (min-width: $desktop) {
+			width: 80%;
+		}
+	}
+
+	@media (min-width: $tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+.weather {
+	width: 100%;
+	text-align: center;
+	color: $off-white;
+
+	@media (min-width: $tablet) {
+		width: 90%;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	@media (min-width: $desktop) {
+		width: 80%;
+		max-width: 1200px;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	section {
+		background-color: $teal-green;
+		border: 5px solid $muted-green;
+		margin: 15px 0;
+		padding: 15px;
+		border-radius: 5px;
+
+		@media (min-width: $tablet) {
+			margin: 0;
+			padding: 20px;
+		}
+	}
+
+	&-today {
+		align-self: start;
+		text-align: left;
+
+		h1 {
+			font-size: 1.6rem;
+			margin: 0;
+			padding: 1px;
+
+			@media (min-width: $tablet) {
+				font-size: 1.8rem;
+			}
+
+			@media (min-width: $desktop) {
+				font-size: 2rem;
+			}
+		}
+
+		h2 {
+			font-size: 1.3rem;
+			margin: 0;
+			padding: 1px;
+
+			@media (min-width: $tablet) {
+				font-size: 1.4rem;
+			}
+
+			@media (min-width: $desktop) {
+				font-size: 1.5rem;
+			}
+		}
+
+		&-info {
+			font-size: 1rem;
+
+			@media (min-width: $tablet) {
+				font-size: 1.1rem;
+			}
+
+			@media (min-width: $desktop) {
+				font-size: 1.2rem;
+			}
+
+			&__item {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				width: 100%;
+				margin-bottom: 5px;
+			}
+
+			&__label {
+				white-space: nowrap;
+			}
+
+			&__line {
+				flex-grow: 1;
+				height: 1px;
+				background-color: rgba(255, 255, 255, 0.3);
+			}
+
+			&__value {
+				white-space: nowrap;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.five-days {
+		overflow-x: auto; // Добавляем горизонтальную прокрутку на мобильных
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+
+			th {
+				font-size: 1.2rem;
+				padding: 8px 5px;
+
+				@media (min-width: $tablet) {
+					font-size: 1.3rem;
+					padding: 10px;
+				}
+
+				@media (min-width: $desktop) {
+					font-size: 1.5rem;
+				}
+			}
+
+			td {
+				color: $deep-blue;
+				background-color: $golden-sand;
+				font-size: 1rem;
+				border: 1px solid $deep-blue;
+				padding: 8px 5px;
+
+				@media (min-width: $tablet) {
+					font-size: 1.1rem;
+					padding: 10px;
+				}
+
+				@media (min-width: $desktop) {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+}
+
+.loading,
+.error {
+	width: 90%;
+	text-align: center;
+	color: $off-white;
+	background-color: $teal-green;
+	border: 5px solid $muted-green;
+	margin: 15px 0;
+	padding: 15px;
+	border-radius: 5px;
+
+	@media (min-width: $tablet) {
+		width: 70%;
+		padding: 20px;
+	}
+
+	@media (min-width: $desktop) {
+		width: 50%;
+		max-width: 600px;
+	}
+}
+
+.error {
+	border: 5px solid $burnt-orange;
+	background-color: $warm-red;
+}
+
+img {
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+}
